@@ -4,6 +4,43 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
+W  = '\033[0m'  # white (default)
+R  = '\033[1;31m' # red
+G  = '\033[1;32m' # green bold
+O  = '\033[1;33m' # orange
+B  = '\033[1;34m' # blue
+P  = '\033[1;35m' # purple
+C  = '\033[1;36m' # cyan
+GR = '\033[1;37m' # gray
+
+def about():
+    print ('')
+    print (G+'[*]==//'+O+' Kata Kata Unfaedah'+W)
+    print ('')
+    print ('Kami segenap anggota team Hax7 mengucapkan Terimakasih karena sudah menggunakan tool buatan kami (Sebenarnya buatan Saya sendiri). Kami membuat tool ini karena kami termotivasi dengan banyaknya orang orang Goblok yang masih berkeliaran di masyarakat (Termasuk Saya). Karena itu, kami pun membuat tool ini untuk membantu para Lamer Tolol untuk menjadi Heker dalam waktu singkat.')
+    print ('')
+    print (G+'[*]==//'+O+' How to Use'+W)
+    print ('')
+    print ('''Pilih menu
+Masukkan Password yang akan di Crack
+Selesai''')
+    print ('')
+    print (G+'[*]==//'+O+' What is new?'+W)
+    print ('')
+    print ('''Pembaruan Interface
+Penambahan Fitur baru
+Penambahan kata kata Unfaedah
+Penambahan Ketampanan Saya :*
+''')
+    ans='Y'
+    ans=str(raw_input(G+'[?]==//'+O+' Continue (Y/N)?\n'+G+'[+]==>> '))
+    if ans=='y'or ans=='Y':
+        menu()
+    elif ans=='n'or ans=='N':
+        exit()
+    else:
+        exit()
+
 
 def tampil(x):
 	w = {'m':31,'h':32,'k':33,'b':34,'p':35,'c':36}
@@ -153,7 +190,7 @@ def login():
 	br.submit()
 	url = br.geturl()
 	if 'save-device' in url or 'm_sess' in url:
-		tampil('\rh[*]==// Login Successed!!')
+		tampil('\rh[*]==// Login Success!!')
 		buka('https://mobile.facebook.com/home.php')
 		nama = br.find_link(url_regex='logout.php').text
 		nama = re.findall(r'\((.*a?)\)',nama)[0]
@@ -294,7 +331,7 @@ def crack(d):
 		else:
 			return menu()
 	else:
-		return crack0(d,inputD('[?]==// INput Passwd >>'),1)
+		return crack0(d,inputD('[?]==// Input Passwd >>'),1)
 def crack0(data,sandi,p):
 	tampil('\rh[*]==// Crack \rk%d Acc \rhWith \rm[\rk%s\rmPasswd]'%(len(data),sandi))
 	print('\033[32;1m[*]==// Cracking \033[31;1m[\033[36;1m0%\033[31;1m]\033[0m',end='')
@@ -391,10 +428,11 @@ def menu():
 \rk[+]==============================[+]
 \rk[\rc1\rk]==//     \rhDaftar Teman     \rk//==[\rc1\rk]
 \rk[\rc2\rk]==//     \rhAnggota Grup     \rk//==[\rc2\rk]
-\rk[\rc3\rk]==//        \rmKELUAR        \rk//==[\rc3\rk]
+\rk[\rc3\rk]==//        \rhAbout         \rk//==[\rc3\rk]
+\rk[\rc4\rk]==//         \rmExit         \rk//==[\rc4\rk]
 \rk[+]==============================[+]
 	''')
-	i = inputM('[?]==// Input >>',[1,2,3])
+	i = inputM('[?]==// Input >>',[1,2,3,4])
 	if i == 1:
 		lanjutT()
 		idteman()
@@ -404,6 +442,10 @@ def menu():
 		idgroup()
 
 	elif i == 3:
+		about()
+
+	elif i == 4:
 		keluar()
+
 bacaData()
 menu()

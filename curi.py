@@ -385,7 +385,7 @@ def menu():
    {\rmX\rc}v{\rmX\rc}\rk|\rhN.H\rk|\rc==========.
      \rc[']  /\rk'\rc|\rk'\rc\           \\
          /  \  \           \rm'
-         \_  \_ \_    \rk__\rmMBF \rc3.1\rk__''')
+         \_  \_ \_    \rk__\rmMBF MAS \rc3.1\rk__''')
 	tampil('''
 \rk[+]==============================[+]
 \rk[+]==//         \rcMenu         \rk//==[+]
